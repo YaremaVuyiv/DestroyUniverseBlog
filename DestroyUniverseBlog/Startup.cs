@@ -99,15 +99,8 @@ namespace DestroyUniverseBlog
                 }
             });
 
-            //app.UseFileServer();
             app.UseDefaultFiles();
             app.UseStaticFiles();
-            /*app.UseMvc(routes =>
-            {
-                routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
-
-                routes.MapSpaFallbackRoute("angular-fallback", new { controller = "Home", action = "Index" });
-            });*/
 
             app.UseAuthentication();
 

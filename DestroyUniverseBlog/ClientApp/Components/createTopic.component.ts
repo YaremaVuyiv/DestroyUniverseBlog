@@ -11,9 +11,9 @@ import { ActivatedRoute, Router } from "@angular/router";
 })
 export class CreateTopicComponent implements OnInit {
 
-    topic: Topic = new Topic();   // изменяемый товар
-    topics: Topic[];                // массив товаров
-    tableMode: boolean = true;          // табличный режим
+    topic: Topic = new Topic();  
+    topics: Topic[];       
+    tableMode: boolean = true; 
     name: string;
     body: string;
 
@@ -22,10 +22,8 @@ export class CreateTopicComponent implements OnInit {
     ngOnInit() {
         
     }
-    // сохранение данных
 
     createTopic() {
-        //this.topic = new Topic(this.name, this.body);
         console.log(JSON.stringify(this.topic));
         this.dataService.createTopic(this.topic).then(
             data => { this.router.navigate(['/']); }

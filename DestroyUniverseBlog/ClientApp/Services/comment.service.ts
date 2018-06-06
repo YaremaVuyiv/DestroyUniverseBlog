@@ -13,13 +13,11 @@ export class CommentService {
 
     constructor(private http: Http) {
         let authToken = localStorage.getItem('token');
-        console.log(authToken);
         this.headers = new Headers({
             'Content-Type': 'application/json',
             'Accept': 'q=0.8;application/json;q=0.9',
             'Authorization': `Bearer ${authToken}`,
         });
-        //headers.append('Authorization', `Bearer ${authToken}`);
         this.options = new RequestOptions({ headers: this.headers });
     }
 
@@ -27,7 +25,6 @@ export class CommentService {
 
     getAllComments(topicId: number): Promise<any> {
         return this.http.get(this.url + '/' + topicId, this.options).toPromise().then(response => {
-            console.log(response.json());
             return response.json();
         });
     }

@@ -18,7 +18,6 @@ export class RegisterComponent {
         private authenticationService: AuthenticationService) { }
 
     register(form: any) {
-        console.log("registered");
     }
 
     save() {

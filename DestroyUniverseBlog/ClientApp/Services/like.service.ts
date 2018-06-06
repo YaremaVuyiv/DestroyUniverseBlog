@@ -14,7 +14,6 @@ export class LikeService {
 
     constructor(private http: Http) {
         let authToken = localStorage.getItem('token');
-        console.log(authToken);
         this.headers = new Headers({
             'Content-Type': 'application/json',
             'Accept': 'q=0.8;application/json;q=0.9',
