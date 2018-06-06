@@ -63,7 +63,6 @@ export class TopicDetailComponent implements OnInit, AfterViewInit {
     }
 
     createComment() {
-        console.log(this.commentText);
         this.comment.topicId = +this.route.snapshot.paramMap.get('id');
         this.comment.text = this.commentText;
         this.commentService.createComment(this.comment).then(response => {

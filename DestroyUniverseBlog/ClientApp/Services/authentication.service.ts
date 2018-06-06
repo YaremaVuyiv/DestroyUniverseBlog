@@ -29,7 +29,6 @@ export class AuthenticationService {
             .then(response => {
                 var token = response.text().toString();
                 if (token != null && token.length > 0) {
-                    console.log(token+"alla");
                     localStorage.setItem('token', token);
                 }
                 
@@ -86,7 +85,7 @@ export class AuthenticationService {
         });
         this.options = new RequestOptions({ headers: this.headers });
 
-        return this.http.post(this.url/* + '/logout'*/, null, this.options).toPromise().then(response => {
+        return this.http.post(this.url, null, this.options).toPromise().then(response => {
             localStorage.removeItem('token');
             return response;
         }).catch(this.handleError);
@@ -104,7 +103,6 @@ export class AuthenticationService {
 
     getUserDetails() {
         var k = this.http.get(this.url + '/userDetails', this.options);
-        console.log(JSON.stringify(k));
 
         return this.http.get(this.url + '/userDetails', this.options).toPromise().then(response => {
             return response.json();
