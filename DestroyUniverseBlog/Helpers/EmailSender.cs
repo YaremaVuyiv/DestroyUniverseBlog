@@ -14,7 +14,7 @@ namespace DestroyUniverseBlog.Helpers
             Options = optionsAccessor.Value;
         }
 
-        public AuthMessageSenderOptions Options { get; } //set only via Secret Manager
+        public AuthMessageSenderOptions Options { get; }
 
         public Task SendEmailAsync(string email, string subject, string message)
         {

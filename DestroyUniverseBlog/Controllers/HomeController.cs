@@ -21,7 +21,6 @@ namespace DestroyUniverseBlog.Controllers
         [HttpGet("Index")]
         public IActionResult Index()
         {
-            
             return new PhysicalFileResult(Path.Combine(_env.WebRootPath, "index.html"), "text/html");
         }
     }

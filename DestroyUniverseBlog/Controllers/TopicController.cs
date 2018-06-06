@@ -36,13 +36,6 @@ namespace DestroyUniverseBlog.Controllers
             _tokenValidator = tokenValidator;
         }
 
-        /*public override void OnActionExecuting(ActionExecutingContext context)
-        {
-            base.OnActionExecuting(context);
-
-            _tokenValidator = new JWTValidator(_userManager, HttpContext.User);
-        }*/
-
         [HttpGet]
         [AllowAnonymous]
         public async Task<IEnumerable<Topic>> Get()
