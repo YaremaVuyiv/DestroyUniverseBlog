@@ -1,0 +1,13 @@
+﻿<div *ngIf="isDataLoaded" class="container">
+    <h1>All topics</h1>
+    <ul class="list-group">
+        <li class="list-group-item" *ngFor="let t of topics">
+            <div>
+                <a class="" routerLink="/detail/{{t?.id}}">
+                    <h3>{{t?.name}}</h3>
+                </a>
+                <p>{{t.body}}</p>
+            </div>
+        </li>
+    </ul>
+</div>

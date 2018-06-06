@@ -1,0 +1,42 @@
+﻿<div *ngIf="isDataLoaded" class="container" style="margin-top:5px">
+    <div class="row">
+        <div class=" col-xs-6" style="width:auto; margin-right:10px;">
+            <h1>{{topic?.name}}</h1>
+        </div>
+        <div class=" col-xs-6" style="width:auto; margin-right:10px">
+            <button *ngIf="likeButtonShown" id="likeButton" class="btn btn-primary" (click)="likeClick()">
+                <i class="material-icons">thumb_{{upOrDown}}</i>
+            </button>
+
+        </div>
+        <div class=" col-xs-6" style="bottom:0; right:0; position:relative;">
+            <p style="font-size:20px; position:absolute; bottom:0;">{{topic?.rating}}</p>
+        </div>
+    </div>
+    <p>{{topic?.body}}</p>
+    <div>
+        <button *ngIf="canAccessAdminFields" class="btn btn-danger" (click)="deleteTopic()">Delete</button>
+    </div>
+    <form #commentForm="ngForm" novalidate (ngSubmit)="createComment()">
+        <div class="form-group">
+            <label for="comment">Enter your comment</label>
+            <input type="text" placeholder="your comment" class="form-control" [(ngModel)]="commentText" id="comment" name="comment" #comment="ngModel"
+                   required />
+        </div>
+        <input type="submit" class="btn btn-success" [disabled]="!commentForm.form.valid" />
+        <!--<button type="button" class="btn btn-default">Submit</button>-->
+    </form>
+    <hr />
+    <div>
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let c of comments">
+                <div>
+                    <p class="pull-right"><b>{{c?.time | date:'yyyy-MM-dd HH:mm'}}</b></p>
+                    <p><b>{{c?.userName}} </b></p>
+                    <p>{{c?.text}}</p>
+                    <button *ngIf="canAccessAdminFields" class="btn btn-danger pull-right" (click)="deleteComment(c?.id)">Delete</button> 
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

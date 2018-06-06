@@ -1,0 +1,23 @@
+﻿<!--<div style="display:flex;flex-direction:column;">
+    <label>Enter name of topic</label>
+    <input [(ngModel)]="name" type="text" required />
+    <label>Enter the rest</label>
+<textarea [(ngModel)]="body" rows="20">
+</textarea>
+    <button class="btn btn-primary">Create</button>
+</div>-->
+
+<div class="container">
+    <h2>Create your own incredible topic</h2>
+    <form #createTopicForm="ngForm" novalidate (ngSubmit)="createTopic()">
+        <div>
+            <label for="titleInput">Enter name of topic</label>
+            <input class="form-control" id="titleInput" type="text" name="title" [(ngModel)]="topic.name" required>
+        </div>
+        <div class="form-group">
+            <label for="bodyInput">Enter the rest:</label>
+            <textarea class="form-control" rows="25" id="bodyInput" name="body" [(ngModel)]="topic.body" required></textarea>
+        </div>
+        <input type="submit" class="btn btn-success" [disabled]="!createTopicForm.form.valid" />
+    </form>
+</div>
