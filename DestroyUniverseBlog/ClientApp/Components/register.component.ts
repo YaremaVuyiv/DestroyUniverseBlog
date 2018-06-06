@@ -17,10 +17,7 @@ export class RegisterComponent {
         private router: Router,
         private authenticationService: AuthenticationService) { }
 
-    register(form: any) {
-    }
-
-    save() {
+    register() {
         this.authenticationService.register(this.user).then(
             data => {
                 this.router.navigate(['/']);
