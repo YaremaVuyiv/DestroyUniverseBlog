@@ -15,8 +15,6 @@ using DestroyUniverseBlog.Helpers;
 using DestroyUniverseBlog.Common;
 using Microsoft.AspNetCore.Identity.UI.Services;
 
-// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace DestroyUniverseBlog.Controllers
 {
     [Route("api/account")]
@@ -45,13 +43,6 @@ namespace DestroyUniverseBlog.Controllers
             _tokenValidator = iTokenValidatorValidator;
         }
 
-        /*public override void OnActionExecuting(ActionExecutingContext context)
-        {
-            base.OnActionExecuting(context);
-
-            _tokenValidator = new JWTValidator(_userManager, HttpContext.User);
-        }*/
-
         [HttpPost("register")]
         [AllowAnonymous]
         public async Task Register([FromBody]RegisterViewModel model)
@@ -68,33 +59,19 @@ namespace DestroyUniverseBlog.Controllers
                     var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, token = code }, Request.Scheme);
                     await _emailSender.SendEmailAsync(user.Email, "Confirm your account",
                         $"Please confirm your account by clicking this link: <a href='{callbackUrl}'>link</a>");
-
-                    //await _signInManager.SignInAsync(user, false);
-                    //var token = BuildToken(user);
-                    //return token;
                 }
             }
-
-            //return null;
         }
 
         [HttpGet("ConfirmEmail")]
         [AllowAnonymous]
-        public async Task/*<IActionResult>*/ ConfirmEmail(string userId, string token)
+        public async Task ConfirmEmail(string userId, string token)
         {
             var user = await _userManager.FindByIdAsync(userId);
             var result = await _userManager.ConfirmEmailAsync(user, token);
             if (result.Succeeded)
             {
-                //return RedirectToAction("Index", "Home", "email");
-                //return RedirectToRoute(new { controller = "Home", action = "Index", redirectTo = "confirmEmail" });
                 Response.Redirect("/confirmEmail");
-                //return RedirectToPage("/confirmEmail");    
-            //return Ok("Your account successfully confirmed");
-            /*}
-            else
-            {
-                return BadRequest();*/
             }
         }
 
@@ -120,10 +97,9 @@ namespace DestroyUniverseBlog.Controllers
 
         [HttpGet("RecoverPassword")]
         [AllowAnonymous]
-        public /*IActionResult*/ void RecoverPassword(string email, string token)
+        public void RecoverPassword(string email, string token)
         {
             Response.Redirect("/?email=" + email + "&token=" + token);
-            //return RedirectToRoute(new { controller = "Home", action = "Index", email = email, token = token });
         }
 
         [HttpPost("RecoverPassword")]
@@ -206,7 +182,6 @@ namespace DestroyUniverseBlog.Controllers
         {
             if (ModelState.IsValid)
             {
-                
                 if (Request.Headers.ContainsKey(Constants.Authorization) &&
                     Request.Headers[Constants.Authorization].ToString().Contains(' ') &&
                     !Request.Headers[Constants.Authorization].ToString().Contains(Null))

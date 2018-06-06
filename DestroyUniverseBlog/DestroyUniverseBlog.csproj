@@ -41,4 +41,8 @@
     <TypeScriptCompile Include="ClientApp\Services\like.service.ts" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+
 </Project>
