@@ -35,7 +35,8 @@ var AccountComponent = (function () {
 AccountComponent = __decorate([
     Component({
         templateUrl: '../Htmls/account.component.html',
-        providers: [AuthenticationService]
+        providers: [AuthenticationService],
+        styleUrls: ['../CSS/account.component.css']
     }),
     __metadata("design:paramtypes", [Router, AuthenticationService])
 ], AccountComponent);

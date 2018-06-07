@@ -95,7 +95,7 @@ TopicDetailComponent = __decorate([
     Component({
         templateUrl: '../Htmls/topicDetail.component.html',
         providers: [DataService, LikeService, AuthenticationService, CommentService],
-        styles: ['../CSS/topicDetail.component.css'],
+        styleUrls: ['../CSS/topicDetail.component.css'],
     }),
     __metadata("design:paramtypes", [DataService, LikeService,
         AuthenticationService, CommentService,

@@ -35,7 +35,8 @@ var StartPageComponent = (function () {
 StartPageComponent = __decorate([
     Component({
         templateUrl: '../Htmls/startPage.component.html',
-        providers: [DataService]
+        providers: [DataService],
+        styleUrls: ['../CSS/startPage.component.css']
     }),
     __metadata("design:paramtypes", [DataService])
 ], StartPageComponent);

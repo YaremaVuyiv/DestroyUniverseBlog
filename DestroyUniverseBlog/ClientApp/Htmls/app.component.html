@@ -1,5 +1,5 @@
-﻿<div style="background-image:url(../Images/april_2_.jpg); height:100vh; width:100vw;">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+﻿<div id="mainContainer">
+    <nav class="navbar sticky-top navbar-expand-sm navbar-dark bg-dark">
         <div class="navbar-header">
             <a class="navbar-brand" href="/">DU Blog</a>
         </div>
@@ -15,7 +15,9 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a id="logButton" (click)="LogOnOff()" class="btn navbar-btn">Log off</a></li>
+                <li class="nav-item">
+                    <a class="nav-link" style="cursor:pointer" id="logButton" (click)="LogOnOff()">Log off</a>
+                </li>
             </ul>
         </div>
     </nav>

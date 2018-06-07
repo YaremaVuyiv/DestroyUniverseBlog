@@ -26,7 +26,8 @@ var ChangePasswordComponent = (function () {
 ChangePasswordComponent = __decorate([
     Component({
         templateUrl: '../Htmls/changePassword.component.html',
-        providers: [AuthenticationService]
+        providers: [AuthenticationService],
+        styleUrls: ['../CSS/changePassword.component.css']
     }),
     __metadata("design:paramtypes", [Router, AuthenticationService])
 ], ChangePasswordComponent);

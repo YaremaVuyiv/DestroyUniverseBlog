@@ -5,7 +5,8 @@ import { User } from "../Models/User";
 
 @Component({
     templateUrl: '../Htmls/login.component.html',
-    providers: [AuthenticationService]
+    providers: [AuthenticationService],
+    styleUrls: ['../CSS/login.component.css']
 })
 
 export class LoginComponent implements OnInit {

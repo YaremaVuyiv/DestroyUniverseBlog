@@ -30,7 +30,8 @@ var RegisterComponent = (function () {
 RegisterComponent = __decorate([
     Component({
         templateUrl: '../Htmls/register.component.html',
-        providers: [AuthenticationService]
+        providers: [AuthenticationService],
+        styleUrls: ['../CSS/register.component.css']
     }),
     __metadata("design:paramtypes", [Router,
         AuthenticationService])

@@ -6,7 +6,8 @@ import { AuthenticationService } from "../Services/authentication.service";
 
 @Component({
     templateUrl: '../Htmls/changePassword.component.html',
-    providers: [AuthenticationService]
+    providers: [AuthenticationService],
+    styleUrls: ['../CSS/changePassword.component.css']
 })
 export class ChangePasswordComponent implements OnInit {
     oldPasswordText: string;

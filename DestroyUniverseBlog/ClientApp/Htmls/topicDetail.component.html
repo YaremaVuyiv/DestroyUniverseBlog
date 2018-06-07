@@ -1,16 +1,16 @@
-﻿<div *ngIf="isDataLoaded" class="container" style="margin-top:5px">
+﻿<div id="mainContainer" *ngIf="isDataLoaded" class="container">
     <div class="row">
-        <div class=" col-xs-6" style="width:auto; margin-right:10px;">
+        <div class="col-xs-6">
             <h1>{{topic?.name}}</h1>
         </div>
-        <div class=" col-xs-6" style="width:auto; margin-right:10px">
+        <div class="col-xs-6">
             <button *ngIf="likeButtonShown" id="likeButton" class="btn btn-primary" (click)="likeClick()">
                 <i class="material-icons">thumb_{{upOrDown}}</i>
             </button>
 
         </div>
-        <div class=" col-xs-6" style="bottom:0; right:0; position:relative;">
-            <p style="font-size:20px; position:absolute; bottom:0;">{{topic?.rating}}</p>
+        <div id="ratingContainer" class="col-xs-6">
+            <p id="ratingParahraph">{{topic?.rating}}</p>
         </div>
     </div>
     <div class="card">

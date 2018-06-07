@@ -31,7 +31,8 @@ var CreateTopicComponent = (function () {
 CreateTopicComponent = __decorate([
     Component({
         templateUrl: '../Htmls/createTopic.component.html',
-        providers: [DataService]
+        providers: [DataService],
+        styleUrls: ['../CSS/createTopic.component.css']
     }),
     __metadata("design:paramtypes", [DataService, ActivatedRoute, Router])
 ], CreateTopicComponent);

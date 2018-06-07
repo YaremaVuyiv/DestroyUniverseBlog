@@ -56,6 +56,7 @@ AppComponent = __decorate([
         selector: 'app',
         templateUrl: '../Htmls/app.component.html',
         providers: [AuthenticationService],
+        styleUrls: ['../CSS/app.component.css']
     }),
     __metadata("design:paramtypes", [Router, ActivatedRoute,
         AuthenticationService])

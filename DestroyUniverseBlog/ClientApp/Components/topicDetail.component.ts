@@ -13,7 +13,7 @@ import { CommentService } from "../Services/comment.service";
 @Component({
     templateUrl: '../Htmls/topicDetail.component.html',
     providers: [DataService, LikeService, AuthenticationService, CommentService],
-    styles: ['../CSS/topicDetail.component.css'],
+    styleUrls: ['../CSS/topicDetail.component.css'],
 })
 export class TopicDetailComponent implements OnInit, AfterViewInit {
 

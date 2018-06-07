@@ -26,6 +26,7 @@ ForgotPasswordComponent = __decorate([
     Component({
         templateUrl: '../Htmls/forgotPassword.component.html',
         providers: [AuthenticationService],
+        styleUrls: ['../CSS/forgotPassword.component.css']
     }),
     __metadata("design:paramtypes", [Router, ActivatedRoute, AuthenticationService])
 ], ForgotPasswordComponent);

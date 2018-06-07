@@ -6,7 +6,8 @@ import { AuthenticationService } from "../Services/authentication.service";
 
 @Component({
     templateUrl: '../Htmls/account.component.html',
-    providers: [AuthenticationService]
+    providers: [AuthenticationService],
+    styleUrls: ['../CSS/account.component.css']
 })
 export class AccountComponent implements OnInit {
     user = new User();

@@ -7,7 +7,8 @@ import { User } from "../Models/User";
 
 @Component({
     templateUrl: '../Htmls/startPage.component.html',
-    providers: [DataService]
+    providers: [DataService],
+    styleUrls:['../CSS/startPage.component.css']
 })
 export class StartPageComponent implements OnInit {
 

@@ -7,6 +7,7 @@ import { AuthenticationService } from "../Services/authentication.service";
 @Component({
     templateUrl: '../Htmls/recoverPassword.component.html',
     providers: [AuthenticationService],
+    styleUrls: ['../CSS/recoverPassword.component.css']
 
 })
 export class RecoverPasswordComponent {

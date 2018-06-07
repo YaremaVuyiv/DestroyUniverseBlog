@@ -31,6 +31,7 @@ RecoverPasswordComponent = __decorate([
     Component({
         templateUrl: '../Htmls/recoverPassword.component.html',
         providers: [AuthenticationService],
+        styleUrls: ['../CSS/recoverPassword.component.css']
     }),
     __metadata("design:paramtypes", [Router, ActivatedRoute, AuthenticationService])
 ], RecoverPasswordComponent);

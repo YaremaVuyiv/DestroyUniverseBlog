@@ -44,7 +44,8 @@ var LoginComponent = (function () {
 LoginComponent = __decorate([
     Component({
         templateUrl: '../Htmls/login.component.html',
-        providers: [AuthenticationService]
+        providers: [AuthenticationService],
+        styleUrls: ['../CSS/login.component.css']
     }),
     __metadata("design:paramtypes", [Router,
         AuthenticationService])

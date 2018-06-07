@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 @Component({
     templateUrl: '../Htmls/confirmEmail.component.html',
+    styleUrls: ['../CSS/confirmEmail.component.css']
 })
 export class ConfirmEmailComponent {
 

@@ -7,7 +7,8 @@ import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
     templateUrl: '../Htmls/createTopic.component.html',
-    providers: [DataService]
+    providers: [DataService],
+    styleUrls: ['../CSS/createTopic.component.css']
 })
 export class CreateTopicComponent implements OnInit {
 

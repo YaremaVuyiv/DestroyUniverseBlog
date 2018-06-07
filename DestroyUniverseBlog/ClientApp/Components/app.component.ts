@@ -8,7 +8,7 @@ import { AuthenticationService } from "../Services/authentication.service";
     selector: 'app',
     templateUrl: '../Htmls/app.component.html',
     providers: [AuthenticationService],
-
+    styleUrls:['../CSS/app.component.css']
 })
 export class AppComponent implements OnInit, AfterViewInit {
 

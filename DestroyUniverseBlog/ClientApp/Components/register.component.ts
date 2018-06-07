@@ -6,7 +6,8 @@ import { User } from "../Models/User";
 
 @Component({
     templateUrl: '../Htmls/register.component.html',
-    providers: [AuthenticationService]
+    providers: [AuthenticationService],
+    styleUrls: ['../CSS/register.component.css']
 })
 
 export class RegisterComponent {

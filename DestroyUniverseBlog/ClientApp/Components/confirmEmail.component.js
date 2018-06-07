@@ -21,6 +21,7 @@ var ConfirmEmailComponent = (function () {
 ConfirmEmailComponent = __decorate([
     Component({
         templateUrl: '../Htmls/confirmEmail.component.html',
+        styleUrls: ['../CSS/confirmEmail.component.css']
     }),
     __metadata("design:paramtypes", [Router])
 ], ConfirmEmailComponent);
