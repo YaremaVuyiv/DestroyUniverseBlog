@@ -28,7 +28,6 @@ var AuthenticationService = (function () {
             .then(function (response) {
             var token = response.text().toString();
             if (token != null && token.length > 0) {
-                console.log(token + "alla");
                 localStorage.setItem('token', token);
             }
             var authToken = localStorage.getItem('token');
@@ -75,7 +74,7 @@ var AuthenticationService = (function () {
             'Authorization': "Bearer " + authToken,
         });
         this.options = new RequestOptions({ headers: this.headers });
-        return this.http.post(this.url /* + '/logout'*/, null, this.options).toPromise().then(function (response) {
+        return this.http.post(this.url, null, this.options).toPromise().then(function (response) {
             localStorage.removeItem('token');
             return response;
         }).catch(this.handleError);
@@ -90,7 +89,6 @@ var AuthenticationService = (function () {
     };
     AuthenticationService.prototype.getUserDetails = function () {
         var k = this.http.get(this.url + '/userDetails', this.options);
-        console.log(JSON.stringify(k));
         return this.http.get(this.url + '/userDetails', this.options).toPromise().then(function (response) {
             return response.json();
         }).catch(this.handleError);

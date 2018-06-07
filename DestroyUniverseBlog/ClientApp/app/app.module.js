@@ -23,7 +23,6 @@ import { ForgotPasswordComponent } from "../Components/forgotPassword.component"
 import { RecoverPasswordComponent } from "../Components/recoverPassword.component";
 var appRoutes = [
     { path: '', component: StartPageComponent },
-    //{ path: '#', component: StartPageComponent },
     { path: 'detail/:id', component: TopicDetailComponent },
     { path: 'create', component: CreateTopicComponent },
     { path: 'login', component: LoginComponent },

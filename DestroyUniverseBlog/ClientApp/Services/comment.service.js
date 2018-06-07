@@ -15,18 +15,15 @@ var CommentService = (function () {
         this.http = http;
         this.url = "/api/comment";
         var authToken = localStorage.getItem('token');
-        console.log(authToken);
         this.headers = new Headers({
             'Content-Type': 'application/json',
             'Accept': 'q=0.8;application/json;q=0.9',
             'Authorization': "Bearer " + authToken,
         });
-        //headers.append('Authorization', `Bearer ${authToken}`);
         this.options = new RequestOptions({ headers: this.headers });
     }
     CommentService.prototype.getAllComments = function (topicId) {
         return this.http.get(this.url + '/' + topicId, this.options).toPromise().then(function (response) {
-            console.log(response.json());
             return response.json();
         });
     };

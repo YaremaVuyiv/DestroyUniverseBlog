@@ -19,7 +19,6 @@ import { RecoverPasswordComponent } from "../Components/recoverPassword.componen
 
 const appRoutes: Routes = [
     { path: '', component: StartPageComponent },
-    //{ path: '#', component: StartPageComponent },
     { path: 'detail/:id', component: TopicDetailComponent },
     { path: 'create', component: CreateTopicComponent },
     { path: 'login', component: LoginComponent },

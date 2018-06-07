@@ -13,28 +13,36 @@
             <p style="font-size:20px; position:absolute; bottom:0;">{{topic?.rating}}</p>
         </div>
     </div>
-    <p>{{topic?.body}}</p>
+    <div class="card">
+        <div class="card-body">
+            <p>{{topic?.body}}</p>
+        </div>
+    </div>
     <div>
         <button *ngIf="canAccessAdminFields" class="btn btn-danger" (click)="deleteTopic()">Delete</button>
     </div>
-    <form #commentForm="ngForm" novalidate (ngSubmit)="createComment()">
-        <div class="form-group">
-            <label for="comment">Enter your comment</label>
-            <input type="text" placeholder="your comment" class="form-control" [(ngModel)]="commentText" id="comment" name="comment" #comment="ngModel"
-                   required />
-        </div>
-        <input type="submit" class="btn btn-success" [disabled]="!commentForm.form.valid" />
-        <!--<button type="button" class="btn btn-default">Submit</button>-->
-    </form>
+    <div>
+        <form #commentForm="ngForm" novalidate (ngSubmit)="createComment()">
+            <div class="form-group">
+                <label for="comment">Enter your comment</label>
+                <input type="text" placeholder="your comment" class="form-control" [(ngModel)]="commentText" id="comment" name="comment" #comment="ngModel"
+                       required />
+            </div>
+            <input type="submit" class="btn btn-success" [disabled]="!commentForm.form.valid" />
+            <!--<button type="button" class="btn btn-default">Submit</button>-->
+        </form>
+    </div>
     <hr />
     <div>
         <ul class="list-group">
             <li class="list-group-item" *ngFor="let c of comments">
                 <div>
-                    <p class="pull-right"><b>{{c?.time | date:'yyyy-MM-dd HH:mm'}}</b></p>
+                    <div class="float-right">
+                        <p><b>{{c?.time | date:'yyyy-MM-dd HH:mm'}}</b></p>
+                        <button *ngIf="canAccessAdminFields" class="btn btn-danger" (click)="deleteComment(c?.id)">Delete</button>
+                    </div>
                     <p><b>{{c?.userName}} </b></p>
                     <p>{{c?.text}}</p>
-                    <button *ngIf="canAccessAdminFields" class="btn btn-danger pull-right" (click)="deleteComment(c?.id)">Delete</button> 
                 </div>
             </li>
         </ul>

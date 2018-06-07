@@ -18,10 +18,7 @@ var RegisterComponent = (function () {
         this.user = new User("", "", "", "", "");
         this.emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
     }
-    RegisterComponent.prototype.register = function (form) {
-        console.log("registered");
-    };
-    RegisterComponent.prototype.save = function () {
+    RegisterComponent.prototype.register = function () {
         var _this = this;
         this.authenticationService.register(this.user).then(function (data) {
             _this.router.navigate(['/']);

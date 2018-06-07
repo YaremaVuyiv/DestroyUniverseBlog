@@ -16,15 +16,13 @@ var CreateTopicComponent = (function () {
         this.dataService = dataService;
         this.route = route;
         this.router = router;
-        this.topic = new Topic(); // изменяемый товар
-        this.tableMode = true; // табличный режим
+        this.topic = new Topic();
+        this.tableMode = true;
     }
     CreateTopicComponent.prototype.ngOnInit = function () {
     };
-    // сохранение данных
     CreateTopicComponent.prototype.createTopic = function () {
         var _this = this;
-        //this.topic = new Topic(this.name, this.body);
         console.log(JSON.stringify(this.topic));
         this.dataService.createTopic(this.topic).then(function (data) { _this.router.navigate(['/']); });
     };

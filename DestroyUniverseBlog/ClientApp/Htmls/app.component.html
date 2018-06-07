@@ -1,31 +1,23 @@
-﻿
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <!-- Brand and toggle get grouped for better mobile display -->
+﻿<div style="background-image:url(../Images/april_2_.jpg); height:100vh; width:100vw;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="navbar-header">
             <a class="navbar-brand" href="/">DU Blog</a>
         </div>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
 
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/create">Create</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/account">Account</a>
-            </li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-            <li><a id="logButton" (click)="LogOnOff()" class="btn navbar-btn">Log off</a><!--<button (click)="LogOff()" class="btn-block">Log off</button>--></li>
-
-        </ul>
-        <!--<form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>-->
-
-
-    </div>
-
-</nav>
-<router-outlet></router-outlet>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/create">Create</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/account">Account</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a id="logButton" (click)="LogOnOff()" class="btn navbar-btn">Log off</a></li>
+            </ul>
+        </div>
+    </nav>
+    <router-outlet></router-outlet>
+</div>

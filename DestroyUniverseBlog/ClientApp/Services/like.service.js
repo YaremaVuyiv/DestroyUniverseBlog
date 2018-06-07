@@ -16,7 +16,6 @@ var LikeService = (function () {
         this.http = http;
         this.url = "/api/likes";
         var authToken = localStorage.getItem('token');
-        console.log(authToken);
         this.headers = new Headers({
             'Content-Type': 'application/json',
             'Accept': 'q=0.8;application/json;q=0.9',
