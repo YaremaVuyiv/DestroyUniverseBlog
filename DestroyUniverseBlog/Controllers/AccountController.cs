@@ -235,6 +235,13 @@ namespace DestroyUniverseBlog.Controllers
                     user.LockoutEnabled = false;
                     return token;
                 }
+                else
+                {
+                    if (result.IsNotAllowed)
+                    {
+                        return "Confirm email";
+                    }
+                }
             }
 
             return null;

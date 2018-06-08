@@ -4,6 +4,7 @@ using SendGrid.Helpers.Mail;
 using System.Threading.Tasks;
 using MailKit.Net.Smtp;
 using Microsoft.AspNetCore.Identity.UI.Services;
+using DestroyUniverseBlog.Common;
 
 namespace DestroyUniverseBlog.Helpers
 {
@@ -18,10 +19,10 @@ namespace DestroyUniverseBlog.Helpers
 
         public Task SendEmailAsync(string email, string subject, string message)
         {
-            return Execute(Options.SendGridKey, subject, message, email);
+            return Execute(Constants.SendGridApiKey, subject, message, email);
         }
 
-        public Task Execute(string apiKey, string subject, string message, string email)
+        public async Task Execute(string apiKey, string subject, string message, string email)
         {
             var client = new SendGridClient(apiKey);
             var msg = new SendGridMessage()
@@ -32,7 +33,8 @@ namespace DestroyUniverseBlog.Helpers
                 HtmlContent = message
             };
             msg.AddTo(new EmailAddress(email));
-            return client.SendEmailAsync(msg);
+            var response = await client.SendEmailAsync(msg);
+            //return response.;
         }
     }
 }

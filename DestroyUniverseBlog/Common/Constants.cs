@@ -10,5 +10,7 @@ namespace DestroyUniverseBlog.Common
         public const string Authorization = nameof(Authorization);
 
         public const string Admin = "admin";
+
+        public const string SendGridApiKey = "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";
     }
 }
