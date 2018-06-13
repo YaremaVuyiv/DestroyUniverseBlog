@@ -29,15 +29,15 @@ var AuthenticationService = (function () {
             var token = response.text().toString();
             if (token != null && token.length > 0) {
                 localStorage.setItem('token', token);
+                var authToken = localStorage.getItem('token');
+                _this.headers = new Headers({
+                    'Content-Type': 'application/json',
+                    'Accept': 'q=0.8;application/json;q=0.9',
+                    'Authorization': "Bearer " + authToken,
+                });
+                _this.options = new RequestOptions({ headers: _this.headers });
+                return response.text();
             }
-            var authToken = localStorage.getItem('token');
-            _this.headers = new Headers({
-                'Content-Type': 'application/json',
-                'Accept': 'q=0.8;application/json;q=0.9',
-                'Authorization': "Bearer " + authToken,
-            });
-            _this.options = new RequestOptions({ headers: _this.headers });
-            return response.text();
         }).catch(this.handleError);
     };
     AuthenticationService.prototype.changePassword = function (oldPassword, newPassword) {

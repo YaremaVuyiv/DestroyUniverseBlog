@@ -1,5 +1,5 @@
 ﻿import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { AuthenticationService } from "../Services/authentication.service";
 import { User } from "../Models/User";
 
@@ -14,8 +14,9 @@ export class LoginComponent implements OnInit {
     isSuccessfulLogin = true;
 
     constructor(
-        private router: Router,
-        private authenticationService: AuthenticationService) { }
+        private router: Router, private route: ActivatedRoute, private authenticationService: AuthenticationService) {
+        
+    }
 
     ngOnInit() {
         this.isSuccessfulLogin = true;
@@ -32,6 +33,13 @@ export class LoginComponent implements OnInit {
                 if (data != null && data.length > 0) {
                     parent.document.getElementById('logButton').innerText = "Log out";
                     this.router.navigate(['/']);
+
+                    this.route.queryParams.subscribe(params => {
+                        let returnUrl = params['returnUrl'];
+                        if (returnUrl != null && returnUrl != undefined) {
+                            this.router.navigate([returnUrl]);
+                        }
+                    })
                 }
                 else {
                     this.isSuccessfulLogin = false;

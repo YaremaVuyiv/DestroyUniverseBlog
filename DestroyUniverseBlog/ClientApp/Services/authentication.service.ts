@@ -23,25 +23,23 @@ export class AuthenticationService {
     private url = "/api/account";
 
     login(user: User): Promise<string> {
-
-
         return this.http.post(this.url + '/login', JSON.stringify({ username: user.userName, password: user.password }), this.options).toPromise()
             .then(response => {
                 var token = response.text().toString();
                 if (token != null && token.length > 0) {
                     localStorage.setItem('token', token);
-                }
-                
-                let authToken = localStorage.getItem('token');
+                    let authToken = localStorage.getItem('token');
 
-                this.headers = new Headers({
-                    'Content-Type': 'application/json',
-                    'Accept': 'q=0.8;application/json;q=0.9',
-                    'Authorization': `Bearer ${authToken}`,
-                });
-                this.options = new RequestOptions({ headers: this.headers });
-                
-                return response.text();
+                    this.headers = new Headers({
+                        'Content-Type': 'application/json',
+                        'Accept': 'q=0.8;application/json;q=0.9',
+                        'Authorization': `Bearer ${authToken}`,
+                    });
+                    this.options = new RequestOptions({ headers: this.headers });
+
+                    return response.text();
+                }
+
             }).catch(this.handleError);
     }
 

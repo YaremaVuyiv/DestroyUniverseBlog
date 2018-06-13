@@ -8,12 +8,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { AuthenticationService } from "../Services/authentication.service";
 import { User } from "../Models/User";
 var LoginComponent = (function () {
-    function LoginComponent(router, authenticationService) {
+    function LoginComponent(router, route, authenticationService) {
         this.router = router;
+        this.route = route;
         this.authenticationService = authenticationService;
         this.user = new User("", "", "", "", "");
         this.isSuccessfulLogin = true;
@@ -30,6 +31,12 @@ var LoginComponent = (function () {
             if (data != null && data.length > 0) {
                 parent.document.getElementById('logButton').innerText = "Log out";
                 _this.router.navigate(['/']);
+                _this.route.queryParams.subscribe(function (params) {
+                    var returnUrl = params['returnUrl'];
+                    if (returnUrl != null && returnUrl != undefined) {
+                        _this.router.navigate([returnUrl]);
+                    }
+                });
             }
             else {
                 _this.isSuccessfulLogin = false;
@@ -47,8 +54,7 @@ LoginComponent = __decorate([
         providers: [AuthenticationService],
         styleUrls: ['../CSS/login.component.css']
     }),
-    __metadata("design:paramtypes", [Router,
-        AuthenticationService])
+    __metadata("design:paramtypes", [Router, ActivatedRoute, AuthenticationService])
 ], LoginComponent);
 export { LoginComponent };
 //# sourceMappingURL=login.component.js.map

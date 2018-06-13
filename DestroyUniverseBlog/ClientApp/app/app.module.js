@@ -21,14 +21,15 @@ import { ChangePasswordComponent } from "../Components/changePassword.component"
 import { ConfirmEmailComponent } from "../Components/confirmEmail.component";
 import { ForgotPasswordComponent } from "../Components/forgotPassword.component";
 import { RecoverPasswordComponent } from "../Components/recoverPassword.component";
+import { AuthGuard } from "../Guards/auth.guard";
 var appRoutes = [
     { path: '', component: StartPageComponent },
     { path: 'detail/:id', component: TopicDetailComponent },
-    { path: 'create', component: CreateTopicComponent },
+    { path: 'create', component: CreateTopicComponent, canActivate: [AuthGuard] },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
-    { path: 'account', component: AccountComponent },
-    { path: 'changePassword', component: ChangePasswordComponent },
+    { path: 'account', component: AccountComponent, canActivate: [AuthGuard] },
+    { path: 'changePassword', component: ChangePasswordComponent, canActivate: [AuthGuard] },
     { path: 'confirmEmail', component: ConfirmEmailComponent },
     { path: 'forgotPassword', component: ForgotPasswordComponent },
     { path: 'recoverPassword/:email/:token', component: RecoverPasswordComponent }
@@ -43,6 +44,7 @@ AppModule = __decorate([
         imports: [BrowserModule, FormsModule, HttpClientModule, HttpModule, RouterModule.forRoot(appRoutes), ReactiveFormsModule],
         declarations: [AppComponent, LoginComponent, StartPageComponent, TopicDetailComponent, CreateTopicComponent, RegisterComponent,
             AccountComponent, ChangePasswordComponent, ConfirmEmailComponent, ForgotPasswordComponent, RecoverPasswordComponent],
+        providers: [AuthGuard],
         bootstrap: [AppComponent],
     })
 ], AppModule);
