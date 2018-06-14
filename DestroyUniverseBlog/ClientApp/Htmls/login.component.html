@@ -2,11 +2,8 @@
     <h2>Login</h2>
     <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
         <div *ngIf="!isSuccessfulLogin" class="alert alert-danger">
-            <div>
-                Your username or password are invalid
-            </div>
-            <div *ngIf="user.password!=user.passwordConfirm">
-                Mismatch password
+            <div id="errorParagraph">
+                {{errorMessage}}
             </div>
         </div>
         <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">

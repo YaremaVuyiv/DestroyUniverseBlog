@@ -5,6 +5,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 import { NgModule } from '@angular/core';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -41,7 +42,7 @@ var AppModule = (function () {
 }());
 AppModule = __decorate([
     NgModule({
-        imports: [BrowserModule, FormsModule, HttpClientModule, HttpModule, RouterModule.forRoot(appRoutes), ReactiveFormsModule],
+        imports: [BrowserModule, FormsModule, HttpClientModule, HttpModule, RouterModule.forRoot(appRoutes), ReactiveFormsModule, NgbModule.forRoot()],
         declarations: [AppComponent, LoginComponent, StartPageComponent, TopicDetailComponent, CreateTopicComponent, RegisterComponent,
             AccountComponent, ChangePasswordComponent, ConfirmEmailComponent, ForgotPasswordComponent, RecoverPasswordComponent],
         providers: [AuthGuard],

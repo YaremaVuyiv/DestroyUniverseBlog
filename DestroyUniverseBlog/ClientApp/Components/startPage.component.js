@@ -36,7 +36,7 @@ StartPageComponent = __decorate([
     Component({
         templateUrl: '../Htmls/startPage.component.html',
         providers: [DataService],
-        styleUrls: ['../CSS/startPage.component.css']
+        styleUrls: ['../CSS/startPage.component.css'],
     }),
     __metadata("design:paramtypes", [DataService])
 ], StartPageComponent);

@@ -36,7 +36,7 @@ export class AuthenticationService {
                         'Authorization': `Bearer ${authToken}`,
                     });
                     this.options = new RequestOptions({ headers: this.headers });
-
+                    console.log(response.text());
                     return response.text();
                 }
 
@@ -70,7 +70,7 @@ export class AuthenticationService {
             .then(response => {
                 localStorage.setItem('token', response.text());
             })
-            .catch(this.handleError);
+            .catch(reason => { return reason; });
     }
 
     logout() {

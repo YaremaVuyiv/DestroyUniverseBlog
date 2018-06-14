@@ -21,5 +21,8 @@
             </ul>
         </div>
     </nav>
-    <router-outlet></router-outlet>
+    <ngb-alert id="emailConfirmAlert" hidden="hidden" (close)="closeAlert()">
+        Please confirm your email.
+    </ngb-alert>
+    <router-outlet (qwe)="onQwe($event)" ></router-outlet>
 </div>

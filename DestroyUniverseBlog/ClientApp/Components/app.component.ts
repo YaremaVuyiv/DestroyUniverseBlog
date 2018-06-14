@@ -1,5 +1,6 @@
-﻿import { Component, OnInit, AfterViewInit } from '@angular/core';
+﻿import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { NgbAlertConfig } from '@ng-bootstrap/ng-bootstrap';
 
 import { HttpResponse } from '@angular/common/http'
 import { AuthenticationService } from "../Services/authentication.service";
@@ -25,6 +26,10 @@ export class AppComponent implements OnInit, AfterViewInit {
                 this.router.navigate(['/recoverPassword', email, token]);
             }
         })
+    }
+
+    closeAlert() {
+        document.getElementById('emailConfirmAlert').hidden = true;
     }
 
     ngOnInit() {

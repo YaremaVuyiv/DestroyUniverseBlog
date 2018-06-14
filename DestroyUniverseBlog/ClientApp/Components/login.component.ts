@@ -12,10 +12,10 @@ import { User } from "../Models/User";
 export class LoginComponent implements OnInit {
     user: User = new User("", "", "", "", "");
     isSuccessfulLogin = true;
+    errorMessage: string;
 
     constructor(
         private router: Router, private route: ActivatedRoute, private authenticationService: AuthenticationService) {
-        
     }
 
     ngOnInit() {
@@ -45,7 +45,14 @@ export class LoginComponent implements OnInit {
                     this.isSuccessfulLogin = false;
                 }
             })
-            .catch(error => console.log(error));
+            .catch((error) => {
+                this.isSuccessfulLogin = false;
+                this.errorMessage = error.text();
+                //console.log('asdasdasdasd');
+                //console.log(error.text());
+                //console.log(typeof error);
+                //document.getElementById('errorParagraph').innerHTML = error.text();
+            });
 
         this.authenticationService.canAccessAdminFields().then((data: boolean) => console.log(data))
             .catch(err => { console.log(err); });

@@ -218,13 +218,10 @@ namespace DestroyUniverseBlog.Controllers
 
         [HttpPost("login")]
         [AllowAnonymous]
-        public async Task<string> Login([FromBody]LoginViewModel model)
+        public async Task<IActionResult> Login([FromBody]LoginViewModel model)
         {
             if (ModelState.IsValid)
             {
-                await _signInManager.SignOutAsync();
-                var user1 = await _userManager.FindByNameAsync(model.Username);
-                var res = await _signInManager.CanSignInAsync(user1);
                 var result = await _signInManager.PasswordSignInAsync(model.Username, model.Password, false, false);
                 if (result.Succeeded)
                 {
@@ -233,11 +230,22 @@ namespace DestroyUniverseBlog.Controllers
                     var role = await _userManager.GetRolesAsync(user);
                     user.Role = role.FirstOrDefault();
                     user.LockoutEnabled = false;
-                    return token;
+                    return Ok(token);
+                }
+                else
+                {
+                    if (result.IsNotAllowed)
+                    {
+                        return BadRequest("Confirm your email to log in");
+                    }
+                    else
+                    {
+                        return BadRequest("Wrong password or login");
+                    }
                 }
             }
 
-            return null;
+            return BadRequest("Wrong password or login");
         }
 
         [HttpPost]

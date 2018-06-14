@@ -1,4 +1,4 @@
-﻿import { Component } from '@angular/core';
+﻿import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from "../Services/authentication.service";
 import { FormsModule, ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
@@ -21,6 +21,7 @@ export class RegisterComponent {
     register() {
         this.authenticationService.register(this.user).then(
             data => {
+                parent.document.getElementById('emailConfirmAlert').hidden = false;
                 this.router.navigate(['/']);
             })
             .catch(error => console.log(error));

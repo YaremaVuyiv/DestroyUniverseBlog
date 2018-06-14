@@ -36,6 +36,7 @@ var AuthenticationService = (function () {
                     'Authorization': "Bearer " + authToken,
                 });
                 _this.options = new RequestOptions({ headers: _this.headers });
+                console.log(response.text());
                 return response.text();
             }
         }).catch(this.handleError);
@@ -64,7 +65,7 @@ var AuthenticationService = (function () {
             .then(function (response) {
             localStorage.setItem('token', response.text());
         })
-            .catch(this.handleError);
+            .catch(function (reason) { return reason; });
     };
     AuthenticationService.prototype.logout = function () {
         var authToken = localStorage.getItem('token');

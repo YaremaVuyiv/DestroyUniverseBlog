@@ -21,6 +21,7 @@ var RegisterComponent = (function () {
     RegisterComponent.prototype.register = function () {
         var _this = this;
         this.authenticationService.register(this.user).then(function (data) {
+            parent.document.getElementById('emailConfirmAlert').hidden = false;
             _this.router.navigate(['/']);
         })
             .catch(function (error) { return console.log(error); });

@@ -28,6 +28,9 @@ var AppComponent = (function () {
             }
         });
     }
+    AppComponent.prototype.closeAlert = function () {
+        document.getElementById('emailConfirmAlert').hidden = true;
+    };
     AppComponent.prototype.ngOnInit = function () {
         this.authenticationService.alreadyLoggedIn().then(function (data) { });
     };

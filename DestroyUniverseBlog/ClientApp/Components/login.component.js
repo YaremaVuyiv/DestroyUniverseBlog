@@ -42,7 +42,14 @@ var LoginComponent = (function () {
                 _this.isSuccessfulLogin = false;
             }
         })
-            .catch(function (error) { return console.log(error); });
+            .catch(function (error) {
+            _this.isSuccessfulLogin = false;
+            _this.errorMessage = error.text();
+            //console.log('asdasdasdasd');
+            //console.log(error.text());
+            //console.log(typeof error);
+            //document.getElementById('errorParagraph').innerHTML = error.text();
+        });
         this.authenticationService.canAccessAdminFields().then(function (data) { return console.log(data); })
             .catch(function (err) { console.log(err); });
     };
